@@ -1,0 +1,132 @@
+﻿mouseListener = True
+
+
+                Do Until mouseListener = False
+
+                Loop
+
+
+                Select Case bonusYahtzeeSelection
+                    Case 1 To 6
+                        bonusYahtzeeScoreUpper(bonusYahtzeeSelection)
+
+                    Case 7
+                        If scoreCard(7, (gameNumber - 1)) <> 1 And roundScored = False Then
+                            Dim threeOfAKindScore As Integer
+                            Array.Sort(diceValue)
+                            If diceValue(0) = diceValue(1) And diceValue(1) = diceValue(2) Then
+                                For i As Integer = 0 To diceValue.GetUpperBound(0)
+                                    threeOfAKindScore += diceValue(i)
+                                Next
+                            ElseIf diceValue(1) = diceValue(2) And diceValue(2) = diceValue(3) Then
+                                For i As Integer = 0 To diceValue.GetUpperBound(0)
+                                    threeOfAKindScore += diceValue(i)
+                                Next
+                            ElseIf diceValue(2) = diceValue(3) And diceValue(3) = diceValue(4) Then
+                                For i As Integer = 0 To diceValue.GetUpperBound(0)
+                                    threeOfAKindScore += diceValue(i)
+                                Next
+                            Else
+                                threeOfAKindScore = 0
+                            End If
+                            Me.Controls("lblThreeOfAKindGame" & NumberToText(gameNumber)).Text = CStr(threeOfAKindScore)
+                            scoreCard(7, (gameNumber - 1)) = 1
+                        Else
+                            MsgBox("This score category has already been filled. " & Environment.NewLine & "Please select another score catergory")
+                            GoTo ScoreSelection
+                        End If
+
+                    Case 8
+                        If scoreCard(8, (gameNumber - 1)) <> 1 And roundScored = False Then
+                            Dim fourOfAKindScore As Integer
+                            Array.Sort(diceValue)
+                            If diceValue(0) = diceValue(1) And diceValue(0) = diceValue(2) And diceValue(0) = diceValue(3) Then
+                                For i As Integer = 0 To diceValue.GetUpperBound(0)
+                                    fourOfAKindScore += diceValue(i)
+                                Next
+                            ElseIf diceValue(1) = diceValue(2) And diceValue(1) = diceValue(3) And diceValue(1) = diceValue(4) Then
+                                For i As Integer = 0 To diceValue.GetUpperBound(0)
+                                    fourOfAKindScore += diceValue(i)
+                                Next
+                            Else
+                                fourOfAKindScore = 0
+                            End If
+                            Me.Controls("lblFourOfAKindGame" & NumberToText(gameNumber)).Text = CStr(fourOfAKindScore)
+                            scoreCard(8, (gameNumber - 1)) = 1
+                        Else
+                            MsgBox("This score category has already been filled. " & Environment.NewLine & "Please select another score catergory")
+                            GoTo ScoreSelection
+                        End If
+
+                    Case 9
+                        If scoreCard(9, (gameNumber - 1)) <> 1 And roundScored = False Then
+                            Dim fullHouseScore As Integer
+                            Array.Sort(diceValue)
+                            If diceValue(0) = diceValue(1) And diceValue(2) = diceValue(3) And diceValue(2) = diceValue(4) And diceValue(2) <> diceValue(0) Then
+                                fullHouseScore = 25
+                            ElseIf diceValue(0) = diceValue(1) And diceValue(0) = diceValue(2) And diceValue(3) = diceValue(4) And diceValue(3) <> diceValue(0) Then
+                                fullHouseScore = 25
+                            Else
+                                fullHouseScore = 0
+                            End If
+                            Me.Controls("lblFullHouseGame" & NumberToText(gameNumber)).Text = CStr(fullHouseScore)
+                            scoreCard(9, (gameNumber - 1)) = 1
+                        Else
+                            MsgBox("This score category has already been filled. " & Environment.NewLine & "Please select another score catergory")
+                        GoTo ScoreSelection
+                        End If
+
+                    Case 10
+                        If scoreCard(10, (gameNumber - 1)) <> 1 And roundScored = False Then
+                            Dim smallStraightScore As Integer
+                            Array.Sort(diceValue)
+                            For i As Integer = 0 To 3
+                                If diceValue(i) = (diceValue(i + 1) - 1) Then
+                                    smallStraightScore = 30
+                                Else
+                                    If diceValue(i) = (diceValue(i + 1)) Then
+                                        smallStraightScore = 30
+                                    Else
+                                        smallStraightScore = 0
+                                        Exit For
+                                    End If
+                                End If
+                            Next
+                            Me.Controls("lblSmallStraightGame" & NumberToText(gameNumber)).Text = CStr(smallStraightScore)
+                            scoreCard(10, (gameNumber - 1)) = 1
+                        Else
+                            MsgBox("This score category has already been filled. " & Environment.NewLine & "Please select another score catergory")
+                            GoTo ScoreSelection
+                        End If
+
+                    Case 11
+                        If scoreCard(11, (gameNumber - 1)) <> 1 And roundScored = False Then
+                            Dim longStraightScore As Integer
+                            Array.Sort(diceValue)
+                            For i As Integer = 0 To 3
+                                If diceValue(i) = (diceValue(i + 1) - 1) Then
+                                    longStraightScore = 40
+                                Else
+                                    longStraightScore = 0
+                                    Exit For
+                                End If
+                            Next
+                            Me.Controls("lblLongStraightGame" & NumberToText(gameNumber)).Text = CStr(longStraightScore)
+                            scoreCard(11, (gameNumber - 1)) = 1
+                        Else
+                            MsgBox("This score category has already been filled. " & Environment.NewLine & "Please select another score catergory")
+                            GoTo ScoreSelection
+                        End If
+
+                    Case 12
+                        If scoreCard(11, (gameNumber - 1)) <> 1 And roundScored = False Then
+                            Dim chanceScore As Integer
+                            For i As Integer = 0 To diceValue.GetUpperBound(0)
+                                chanceScore += diceValue(i)
+                            Next
+                            Me.Controls("lblChanceGame" & NumberToText(gameNumber)).Text = CStr(chanceScore)
+                        Else
+                            MsgBox("This score category has already been filled. " & Environment.NewLine & "Please select another score catergory")
+                            GoTo ScoreSelection
+                        End If
+                End Select
