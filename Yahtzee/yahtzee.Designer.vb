@@ -128,12 +128,12 @@ Partial Class frmYahtzee
         Me.lblFullHouseGameOne = New System.Windows.Forms.Label()
         Me.lblfourOfAKindGameOne = New System.Windows.Forms.Label()
         Me.lblThreeOfAKindGameOne = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
+        Me.lblGrandTotalScoreGameSix = New System.Windows.Forms.Label()
+        Me.lblGrandTotalScoreGameFive = New System.Windows.Forms.Label()
+        Me.lblGrandTotalScoreGameFour = New System.Windows.Forms.Label()
+        Me.lblGrandTotalScoreGameThree = New System.Windows.Forms.Label()
+        Me.lblGrandTotalScoreGameTwo = New System.Windows.Forms.Label()
+        Me.lblGrandTotalScoreGameOne = New System.Windows.Forms.Label()
         Me.lblTotalOfUpperSectionGameSix = New System.Windows.Forms.Label()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.lblTotalOfUpperSectionGameFive = New System.Windows.Forms.Label()
@@ -185,6 +185,7 @@ Partial Class frmYahtzee
         Me.lblYahtzeeBonusScoreGameFour = New System.Windows.Forms.Label()
         Me.lblYahtzeeBonusScoreGameFive = New System.Windows.Forms.Label()
         Me.lblYahtzeeBonusScoreGameSix = New System.Windows.Forms.Label()
+        Me.btnStartNewGame = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.picYahtzeeBonus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picYahtzeeBonusThreeGameSix, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1270,71 +1271,65 @@ Partial Class frmYahtzee
         Me.lblThreeOfAKindGameOne.Size = New System.Drawing.Size(0, 16)
         Me.lblThreeOfAKindGameOne.TabIndex = 69
         '
-        'Label12
+        'lblGrandTotalScoreGameSix
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(349, 536)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(14, 16)
-        Me.Label12.TabIndex = 129
-        Me.Label12.Text = "1"
+        Me.lblGrandTotalScoreGameSix.AutoSize = True
+        Me.lblGrandTotalScoreGameSix.BackColor = System.Drawing.Color.Transparent
+        Me.lblGrandTotalScoreGameSix.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGrandTotalScoreGameSix.Location = New System.Drawing.Point(349, 536)
+        Me.lblGrandTotalScoreGameSix.Name = "lblGrandTotalScoreGameSix"
+        Me.lblGrandTotalScoreGameSix.Size = New System.Drawing.Size(0, 16)
+        Me.lblGrandTotalScoreGameSix.TabIndex = 129
         '
-        'Label18
+        'lblGrandTotalScoreGameFive
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.BackColor = System.Drawing.Color.Transparent
-        Me.Label18.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(314, 536)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(14, 16)
-        Me.Label18.TabIndex = 128
-        Me.Label18.Text = "1"
+        Me.lblGrandTotalScoreGameFive.AutoSize = True
+        Me.lblGrandTotalScoreGameFive.BackColor = System.Drawing.Color.Transparent
+        Me.lblGrandTotalScoreGameFive.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGrandTotalScoreGameFive.Location = New System.Drawing.Point(314, 536)
+        Me.lblGrandTotalScoreGameFive.Name = "lblGrandTotalScoreGameFive"
+        Me.lblGrandTotalScoreGameFive.Size = New System.Drawing.Size(0, 16)
+        Me.lblGrandTotalScoreGameFive.TabIndex = 128
         '
-        'Label24
+        'lblGrandTotalScoreGameFour
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.BackColor = System.Drawing.Color.Transparent
-        Me.Label24.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(280, 536)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(14, 16)
-        Me.Label24.TabIndex = 127
-        Me.Label24.Text = "1"
+        Me.lblGrandTotalScoreGameFour.AutoSize = True
+        Me.lblGrandTotalScoreGameFour.BackColor = System.Drawing.Color.Transparent
+        Me.lblGrandTotalScoreGameFour.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGrandTotalScoreGameFour.Location = New System.Drawing.Point(280, 536)
+        Me.lblGrandTotalScoreGameFour.Name = "lblGrandTotalScoreGameFour"
+        Me.lblGrandTotalScoreGameFour.Size = New System.Drawing.Size(0, 16)
+        Me.lblGrandTotalScoreGameFour.TabIndex = 127
         '
-        'Label30
+        'lblGrandTotalScoreGameThree
         '
-        Me.Label30.AutoSize = True
-        Me.Label30.BackColor = System.Drawing.Color.Transparent
-        Me.Label30.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(244, 536)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(14, 16)
-        Me.Label30.TabIndex = 126
-        Me.Label30.Text = "1"
+        Me.lblGrandTotalScoreGameThree.AutoSize = True
+        Me.lblGrandTotalScoreGameThree.BackColor = System.Drawing.Color.Transparent
+        Me.lblGrandTotalScoreGameThree.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGrandTotalScoreGameThree.Location = New System.Drawing.Point(244, 536)
+        Me.lblGrandTotalScoreGameThree.Name = "lblGrandTotalScoreGameThree"
+        Me.lblGrandTotalScoreGameThree.Size = New System.Drawing.Size(0, 16)
+        Me.lblGrandTotalScoreGameThree.TabIndex = 126
         '
-        'Label36
+        'lblGrandTotalScoreGameTwo
         '
-        Me.Label36.AutoSize = True
-        Me.Label36.BackColor = System.Drawing.Color.Transparent
-        Me.Label36.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.Location = New System.Drawing.Point(210, 536)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(14, 16)
-        Me.Label36.TabIndex = 125
-        Me.Label36.Text = "1"
+        Me.lblGrandTotalScoreGameTwo.AutoSize = True
+        Me.lblGrandTotalScoreGameTwo.BackColor = System.Drawing.Color.Transparent
+        Me.lblGrandTotalScoreGameTwo.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGrandTotalScoreGameTwo.Location = New System.Drawing.Point(210, 536)
+        Me.lblGrandTotalScoreGameTwo.Name = "lblGrandTotalScoreGameTwo"
+        Me.lblGrandTotalScoreGameTwo.Size = New System.Drawing.Size(0, 16)
+        Me.lblGrandTotalScoreGameTwo.TabIndex = 125
         '
-        'Label42
+        'lblGrandTotalScoreGameOne
         '
-        Me.Label42.AutoSize = True
-        Me.Label42.BackColor = System.Drawing.Color.Transparent
-        Me.Label42.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label42.Location = New System.Drawing.Point(175, 536)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(14, 16)
-        Me.Label42.TabIndex = 124
-        Me.Label42.Text = "1"
+        Me.lblGrandTotalScoreGameOne.AutoSize = True
+        Me.lblGrandTotalScoreGameOne.BackColor = System.Drawing.Color.Transparent
+        Me.lblGrandTotalScoreGameOne.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGrandTotalScoreGameOne.Location = New System.Drawing.Point(175, 536)
+        Me.lblGrandTotalScoreGameOne.Name = "lblGrandTotalScoreGameOne"
+        Me.lblGrandTotalScoreGameOne.Size = New System.Drawing.Size(0, 16)
+        Me.lblGrandTotalScoreGameOne.TabIndex = 124
         '
         'lblTotalOfUpperSectionGameSix
         '
@@ -1343,9 +1338,8 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameSix.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalOfUpperSectionGameSix.Location = New System.Drawing.Point(349, 519)
         Me.lblTotalOfUpperSectionGameSix.Name = "lblTotalOfUpperSectionGameSix"
-        Me.lblTotalOfUpperSectionGameSix.Size = New System.Drawing.Size(14, 16)
+        Me.lblTotalOfUpperSectionGameSix.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameSix.TabIndex = 123
-        Me.lblTotalOfUpperSectionGameSix.Text = "1"
         '
         'Label44
         '
@@ -1354,9 +1348,8 @@ Partial Class frmYahtzee
         Me.Label44.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label44.Location = New System.Drawing.Point(349, 502)
         Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(14, 16)
+        Me.Label44.Size = New System.Drawing.Size(0, 16)
         Me.Label44.TabIndex = 122
-        Me.Label44.Text = "1"
         '
         'lblTotalOfUpperSectionGameFive
         '
@@ -1365,9 +1358,8 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameFive.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalOfUpperSectionGameFive.Location = New System.Drawing.Point(314, 519)
         Me.lblTotalOfUpperSectionGameFive.Name = "lblTotalOfUpperSectionGameFive"
-        Me.lblTotalOfUpperSectionGameFive.Size = New System.Drawing.Size(14, 16)
+        Me.lblTotalOfUpperSectionGameFive.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameFive.TabIndex = 121
-        Me.lblTotalOfUpperSectionGameFive.Text = "1"
         '
         'Label46
         '
@@ -1376,9 +1368,8 @@ Partial Class frmYahtzee
         Me.Label46.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label46.Location = New System.Drawing.Point(314, 502)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(14, 16)
+        Me.Label46.Size = New System.Drawing.Size(0, 16)
         Me.Label46.TabIndex = 120
-        Me.Label46.Text = "1"
         '
         'lblTotalOfUpperSectionGameFour
         '
@@ -1387,9 +1378,8 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameFour.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalOfUpperSectionGameFour.Location = New System.Drawing.Point(280, 519)
         Me.lblTotalOfUpperSectionGameFour.Name = "lblTotalOfUpperSectionGameFour"
-        Me.lblTotalOfUpperSectionGameFour.Size = New System.Drawing.Size(14, 16)
+        Me.lblTotalOfUpperSectionGameFour.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameFour.TabIndex = 119
-        Me.lblTotalOfUpperSectionGameFour.Text = "1"
         '
         'Label48
         '
@@ -1398,9 +1388,8 @@ Partial Class frmYahtzee
         Me.Label48.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label48.Location = New System.Drawing.Point(280, 502)
         Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(14, 16)
+        Me.Label48.Size = New System.Drawing.Size(0, 16)
         Me.Label48.TabIndex = 118
-        Me.Label48.Text = "1"
         '
         'lblTotalOfUpperSectionGameThree
         '
@@ -1409,9 +1398,8 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameThree.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalOfUpperSectionGameThree.Location = New System.Drawing.Point(244, 519)
         Me.lblTotalOfUpperSectionGameThree.Name = "lblTotalOfUpperSectionGameThree"
-        Me.lblTotalOfUpperSectionGameThree.Size = New System.Drawing.Size(14, 16)
+        Me.lblTotalOfUpperSectionGameThree.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameThree.TabIndex = 117
-        Me.lblTotalOfUpperSectionGameThree.Text = "1"
         '
         'Label50
         '
@@ -1420,9 +1408,8 @@ Partial Class frmYahtzee
         Me.Label50.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label50.Location = New System.Drawing.Point(244, 502)
         Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(14, 16)
+        Me.Label50.Size = New System.Drawing.Size(0, 16)
         Me.Label50.TabIndex = 116
-        Me.Label50.Text = "1"
         '
         'lblTotalOfUpperSectionGameTwo
         '
@@ -1431,9 +1418,8 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameTwo.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalOfUpperSectionGameTwo.Location = New System.Drawing.Point(210, 519)
         Me.lblTotalOfUpperSectionGameTwo.Name = "lblTotalOfUpperSectionGameTwo"
-        Me.lblTotalOfUpperSectionGameTwo.Size = New System.Drawing.Size(14, 16)
+        Me.lblTotalOfUpperSectionGameTwo.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameTwo.TabIndex = 115
-        Me.lblTotalOfUpperSectionGameTwo.Text = "1"
         '
         'Label52
         '
@@ -1442,9 +1428,8 @@ Partial Class frmYahtzee
         Me.Label52.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label52.Location = New System.Drawing.Point(210, 502)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(14, 16)
+        Me.Label52.Size = New System.Drawing.Size(0, 16)
         Me.Label52.TabIndex = 114
-        Me.Label52.Text = "1"
         '
         'lblTotalOfUpperSectionGameOne
         '
@@ -1453,9 +1438,8 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameOne.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalOfUpperSectionGameOne.Location = New System.Drawing.Point(175, 519)
         Me.lblTotalOfUpperSectionGameOne.Name = "lblTotalOfUpperSectionGameOne"
-        Me.lblTotalOfUpperSectionGameOne.Size = New System.Drawing.Size(14, 16)
+        Me.lblTotalOfUpperSectionGameOne.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameOne.TabIndex = 113
-        Me.lblTotalOfUpperSectionGameOne.Text = "1"
         '
         'lblTotalOfLowerSectionGameOne
         '
@@ -1464,9 +1448,8 @@ Partial Class frmYahtzee
         Me.lblTotalOfLowerSectionGameOne.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalOfLowerSectionGameOne.Location = New System.Drawing.Point(175, 502)
         Me.lblTotalOfLowerSectionGameOne.Name = "lblTotalOfLowerSectionGameOne"
-        Me.lblTotalOfLowerSectionGameOne.Size = New System.Drawing.Size(14, 16)
+        Me.lblTotalOfLowerSectionGameOne.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfLowerSectionGameOne.TabIndex = 112
-        Me.lblTotalOfLowerSectionGameOne.Text = "1"
         '
         'picYahtzeeBonus
         '
@@ -1821,11 +1804,22 @@ Partial Class frmYahtzee
         Me.lblYahtzeeBonusScoreGameSix.Size = New System.Drawing.Size(0, 16)
         Me.lblYahtzeeBonusScoreGameSix.TabIndex = 160
         '
+        'btnStartNewGame
+        '
+        Me.btnStartNewGame.Location = New System.Drawing.Point(72, 66)
+        Me.btnStartNewGame.Name = "btnStartNewGame"
+        Me.btnStartNewGame.Size = New System.Drawing.Size(96, 23)
+        Me.btnStartNewGame.TabIndex = 161
+        Me.btnStartNewGame.Text = "Start New Game"
+        Me.btnStartNewGame.UseVisualStyleBackColor = True
+        Me.btnStartNewGame.Visible = False
+        '
         'frmYahtzee
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(384, 561)
+        Me.Controls.Add(Me.btnStartNewGame)
         Me.Controls.Add(Me.lblYahtzeeBonusScoreGameSix)
         Me.Controls.Add(Me.lblYahtzeeBonusScoreGameFive)
         Me.Controls.Add(Me.lblYahtzeeBonusScoreGameFour)
@@ -1857,12 +1851,12 @@ Partial Class frmYahtzee
         Me.Controls.Add(Me.picSmallStraight)
         Me.Controls.Add(Me.picFullHouse)
         Me.Controls.Add(Me.picFourOfAKind)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.Label24)
-        Me.Controls.Add(Me.Label30)
-        Me.Controls.Add(Me.Label36)
-        Me.Controls.Add(Me.Label42)
+        Me.Controls.Add(Me.lblGrandTotalScoreGameSix)
+        Me.Controls.Add(Me.lblGrandTotalScoreGameFive)
+        Me.Controls.Add(Me.lblGrandTotalScoreGameFour)
+        Me.Controls.Add(Me.lblGrandTotalScoreGameThree)
+        Me.Controls.Add(Me.lblGrandTotalScoreGameTwo)
+        Me.Controls.Add(Me.lblGrandTotalScoreGameOne)
         Me.Controls.Add(Me.lblTotalOfUpperSectionGameSix)
         Me.Controls.Add(Me.Label44)
         Me.Controls.Add(Me.lblTotalOfUpperSectionGameFive)
@@ -2147,12 +2141,12 @@ Partial Class frmYahtzee
     Friend WithEvents lblfourOfAKindGameOne As Label
     Friend WithEvents lblThreeOfAKindGameOne As Label
     Friend WithEvents picThreeOfAKind As PictureBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label24 As Label
-    Friend WithEvents Label30 As Label
-    Friend WithEvents Label36 As Label
-    Friend WithEvents Label42 As Label
+    Friend WithEvents lblGrandTotalScoreGameSix As Label
+    Friend WithEvents lblGrandTotalScoreGameFive As Label
+    Friend WithEvents lblGrandTotalScoreGameFour As Label
+    Friend WithEvents lblGrandTotalScoreGameThree As Label
+    Friend WithEvents lblGrandTotalScoreGameTwo As Label
+    Friend WithEvents lblGrandTotalScoreGameOne As Label
     Friend WithEvents lblTotalOfUpperSectionGameSix As Label
     Friend WithEvents Label44 As Label
     Friend WithEvents lblTotalOfUpperSectionGameFive As Label
@@ -2196,4 +2190,5 @@ Partial Class frmYahtzee
     Friend WithEvents lblYahtzeeBonusScoreGameFour As Label
     Friend WithEvents lblYahtzeeBonusScoreGameFive As Label
     Friend WithEvents lblYahtzeeBonusScoreGameSix As Label
+    Friend WithEvents btnStartNewGame As Button
 End Class
