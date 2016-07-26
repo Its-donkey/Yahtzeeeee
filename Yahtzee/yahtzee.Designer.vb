@@ -22,14 +22,14 @@ Partial Class frmYahtzee
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmYahtzee))
-        Me.lblDiceOne = New System.Windows.Forms.Label()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.lblDiceTwo = New System.Windows.Forms.Label()
-        Me.lblDiceThree = New System.Windows.Forms.Label()
-        Me.lblDiceFour = New System.Windows.Forms.Label()
-        Me.lblDiceFive = New System.Windows.Forms.Label()
+        Me.mnuTopBar = New System.Windows.Forms.MenuStrip()
+        Me.mnuTopBarFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuTopBarFileExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuTopBarHelp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuTopBarHelpViewHelp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuTopBarHelpRules = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnRollDice = New System.Windows.Forms.Button()
         Me.lblOneGameOne = New System.Windows.Forms.Label()
         Me.lblTwoGameOne = New System.Windows.Forms.Label()
@@ -135,17 +135,30 @@ Partial Class frmYahtzee
         Me.lblGrandTotalScoreGameTwo = New System.Windows.Forms.Label()
         Me.lblGrandTotalScoreGameOne = New System.Windows.Forms.Label()
         Me.lblTotalOfUpperSectionGameSix = New System.Windows.Forms.Label()
-        Me.Label44 = New System.Windows.Forms.Label()
+        Me.lblTotalOfLowerSectionGameSix = New System.Windows.Forms.Label()
         Me.lblTotalOfUpperSectionGameFive = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
+        Me.lblTotalOfLowerSectionGameFive = New System.Windows.Forms.Label()
         Me.lblTotalOfUpperSectionGameFour = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
+        Me.lblTotalOfLowerSectionGameFour = New System.Windows.Forms.Label()
         Me.lblTotalOfUpperSectionGameThree = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
+        Me.lblTotalOfLowerSectionGameThree = New System.Windows.Forms.Label()
         Me.lblTotalOfUpperSectionGameTwo = New System.Windows.Forms.Label()
-        Me.Label52 = New System.Windows.Forms.Label()
+        Me.lblTotalOfLowerSectionGameTwo = New System.Windows.Forms.Label()
         Me.lblTotalOfUpperSectionGameOne = New System.Windows.Forms.Label()
         Me.lblTotalOfLowerSectionGameOne = New System.Windows.Forms.Label()
+        Me.lblYahtzeeBonusScoreGameOne = New System.Windows.Forms.Label()
+        Me.lblYahtzeeBonusScoreGameTwo = New System.Windows.Forms.Label()
+        Me.lblYahtzeeBonusScoreGameThree = New System.Windows.Forms.Label()
+        Me.lblYahtzeeBonusScoreGameFour = New System.Windows.Forms.Label()
+        Me.lblYahtzeeBonusScoreGameFive = New System.Windows.Forms.Label()
+        Me.lblYahtzeeBonusScoreGameSix = New System.Windows.Forms.Label()
+        Me.btnStartNewGame = New System.Windows.Forms.Button()
+        Me.lblPlayerName = New System.Windows.Forms.Label()
+        Me.picDiceFiveImage = New System.Windows.Forms.PictureBox()
+        Me.picDiceFourImage = New System.Windows.Forms.PictureBox()
+        Me.picDiceThreeImage = New System.Windows.Forms.PictureBox()
+        Me.picDiceTwoImage = New System.Windows.Forms.PictureBox()
+        Me.picDiceOneImage = New System.Windows.Forms.PictureBox()
         Me.picYahtzeeBonus = New System.Windows.Forms.PictureBox()
         Me.picYahtzeeBonusThreeGameSix = New System.Windows.Forms.PictureBox()
         Me.picYahtzeeBonusTwoGameSix = New System.Windows.Forms.PictureBox()
@@ -179,14 +192,13 @@ Partial Class frmYahtzee
         Me.picTwos = New System.Windows.Forms.PictureBox()
         Me.picAces = New System.Windows.Forms.PictureBox()
         Me.picScoresheet = New System.Windows.Forms.PictureBox()
-        Me.lblYahtzeeBonusScoreGameOne = New System.Windows.Forms.Label()
-        Me.lblYahtzeeBonusScoreGameTwo = New System.Windows.Forms.Label()
-        Me.lblYahtzeeBonusScoreGameThree = New System.Windows.Forms.Label()
-        Me.lblYahtzeeBonusScoreGameFour = New System.Windows.Forms.Label()
-        Me.lblYahtzeeBonusScoreGameFive = New System.Windows.Forms.Label()
-        Me.lblYahtzeeBonusScoreGameSix = New System.Windows.Forms.Label()
-        Me.btnStartNewGame = New System.Windows.Forms.Button()
-        Me.MenuStrip1.SuspendLayout()
+        Me.tmrDiceRoller = New System.Windows.Forms.Timer(Me.components)
+        Me.mnuTopBar.SuspendLayout()
+        CType(Me.picDiceFiveImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDiceFourImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDiceThreeImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDiceTwoImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picDiceOneImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picYahtzeeBonus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picYahtzeeBonusThreeGameSix, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picYahtzeeBonusTwoGameSix, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -222,75 +234,48 @@ Partial Class frmYahtzee
         CType(Me.picScoresheet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'lblDiceOne
+        'mnuTopBar
         '
-        Me.lblDiceOne.AutoSize = True
-        Me.lblDiceOne.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDiceOne.Font = New System.Drawing.Font("Britannic Bold", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiceOne.Location = New System.Drawing.Point(12, 24)
-        Me.lblDiceOne.Name = "lblDiceOne"
-        Me.lblDiceOne.Size = New System.Drawing.Size(40, 40)
-        Me.lblDiceOne.TabIndex = 0
-        Me.lblDiceOne.Text = "1"
+        Me.mnuTopBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuTopBarFile, Me.mnuTopBarHelp})
+        Me.mnuTopBar.Location = New System.Drawing.Point(0, 0)
+        Me.mnuTopBar.Name = "mnuTopBar"
+        Me.mnuTopBar.Size = New System.Drawing.Size(384, 24)
+        Me.mnuTopBar.TabIndex = 1
+        Me.mnuTopBar.Text = "MenuStrip1"
         '
-        'MenuStrip1
+        'mnuTopBarFile
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(384, 24)
-        Me.MenuStrip1.TabIndex = 1
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.mnuTopBarFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuTopBarFileExit})
+        Me.mnuTopBarFile.Name = "mnuTopBarFile"
+        Me.mnuTopBarFile.Size = New System.Drawing.Size(37, 20)
+        Me.mnuTopBarFile.Text = "&File"
         '
-        'FileToolStripMenuItem
+        'mnuTopBarFileExit
         '
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "File"
+        Me.mnuTopBarFileExit.Name = "mnuTopBarFileExit"
+        Me.mnuTopBarFileExit.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
+        Me.mnuTopBarFileExit.Size = New System.Drawing.Size(152, 22)
+        Me.mnuTopBarFileExit.Text = "E&xit"
         '
-        'lblDiceTwo
+        'mnuTopBarHelp
         '
-        Me.lblDiceTwo.AutoSize = True
-        Me.lblDiceTwo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDiceTwo.Font = New System.Drawing.Font("Britannic Bold", 26.25!)
-        Me.lblDiceTwo.Location = New System.Drawing.Point(56, 24)
-        Me.lblDiceTwo.Name = "lblDiceTwo"
-        Me.lblDiceTwo.Size = New System.Drawing.Size(40, 40)
-        Me.lblDiceTwo.TabIndex = 2
-        Me.lblDiceTwo.Text = "2"
+        Me.mnuTopBarHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuTopBarHelpViewHelp, Me.mnuTopBarHelpRules})
+        Me.mnuTopBarHelp.Name = "mnuTopBarHelp"
+        Me.mnuTopBarHelp.Size = New System.Drawing.Size(44, 20)
+        Me.mnuTopBarHelp.Text = "&Help"
         '
-        'lblDiceThree
+        'mnuTopBarHelpViewHelp
         '
-        Me.lblDiceThree.AutoSize = True
-        Me.lblDiceThree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDiceThree.Font = New System.Drawing.Font("Britannic Bold", 26.25!)
-        Me.lblDiceThree.Location = New System.Drawing.Point(100, 24)
-        Me.lblDiceThree.Name = "lblDiceThree"
-        Me.lblDiceThree.Size = New System.Drawing.Size(40, 40)
-        Me.lblDiceThree.TabIndex = 3
-        Me.lblDiceThree.Text = "3"
+        Me.mnuTopBarHelpViewHelp.Name = "mnuTopBarHelpViewHelp"
+        Me.mnuTopBarHelpViewHelp.ShortcutKeys = System.Windows.Forms.Keys.F1
+        Me.mnuTopBarHelpViewHelp.Size = New System.Drawing.Size(146, 22)
+        Me.mnuTopBarHelpViewHelp.Text = "View &Help"
         '
-        'lblDiceFour
+        'mnuTopBarHelpRules
         '
-        Me.lblDiceFour.AutoSize = True
-        Me.lblDiceFour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDiceFour.Font = New System.Drawing.Font("Britannic Bold", 26.25!)
-        Me.lblDiceFour.Location = New System.Drawing.Point(144, 24)
-        Me.lblDiceFour.Name = "lblDiceFour"
-        Me.lblDiceFour.Size = New System.Drawing.Size(40, 40)
-        Me.lblDiceFour.TabIndex = 4
-        Me.lblDiceFour.Text = "4"
-        '
-        'lblDiceFive
-        '
-        Me.lblDiceFive.AutoSize = True
-        Me.lblDiceFive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblDiceFive.Font = New System.Drawing.Font("Britannic Bold", 26.25!)
-        Me.lblDiceFive.Location = New System.Drawing.Point(188, 24)
-        Me.lblDiceFive.Name = "lblDiceFive"
-        Me.lblDiceFive.Size = New System.Drawing.Size(40, 40)
-        Me.lblDiceFive.TabIndex = 5
-        Me.lblDiceFive.Text = "5"
+        Me.mnuTopBarHelpRules.Name = "mnuTopBarHelpRules"
+        Me.mnuTopBarHelpRules.Size = New System.Drawing.Size(146, 22)
+        Me.mnuTopBarHelpRules.Text = "Game &Rules"
         '
         'btnRollDice
         '
@@ -1341,15 +1326,15 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameSix.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameSix.TabIndex = 123
         '
-        'Label44
+        'lblTotalOfLowerSectionGameSix
         '
-        Me.Label44.AutoSize = True
-        Me.Label44.BackColor = System.Drawing.Color.Transparent
-        Me.Label44.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.Location = New System.Drawing.Point(349, 502)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(0, 16)
-        Me.Label44.TabIndex = 122
+        Me.lblTotalOfLowerSectionGameSix.AutoSize = True
+        Me.lblTotalOfLowerSectionGameSix.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalOfLowerSectionGameSix.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalOfLowerSectionGameSix.Location = New System.Drawing.Point(349, 502)
+        Me.lblTotalOfLowerSectionGameSix.Name = "lblTotalOfLowerSectionGameSix"
+        Me.lblTotalOfLowerSectionGameSix.Size = New System.Drawing.Size(0, 16)
+        Me.lblTotalOfLowerSectionGameSix.TabIndex = 122
         '
         'lblTotalOfUpperSectionGameFive
         '
@@ -1361,15 +1346,15 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameFive.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameFive.TabIndex = 121
         '
-        'Label46
+        'lblTotalOfLowerSectionGameFive
         '
-        Me.Label46.AutoSize = True
-        Me.Label46.BackColor = System.Drawing.Color.Transparent
-        Me.Label46.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label46.Location = New System.Drawing.Point(314, 502)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(0, 16)
-        Me.Label46.TabIndex = 120
+        Me.lblTotalOfLowerSectionGameFive.AutoSize = True
+        Me.lblTotalOfLowerSectionGameFive.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalOfLowerSectionGameFive.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalOfLowerSectionGameFive.Location = New System.Drawing.Point(314, 502)
+        Me.lblTotalOfLowerSectionGameFive.Name = "lblTotalOfLowerSectionGameFive"
+        Me.lblTotalOfLowerSectionGameFive.Size = New System.Drawing.Size(0, 16)
+        Me.lblTotalOfLowerSectionGameFive.TabIndex = 120
         '
         'lblTotalOfUpperSectionGameFour
         '
@@ -1381,15 +1366,15 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameFour.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameFour.TabIndex = 119
         '
-        'Label48
+        'lblTotalOfLowerSectionGameFour
         '
-        Me.Label48.AutoSize = True
-        Me.Label48.BackColor = System.Drawing.Color.Transparent
-        Me.Label48.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label48.Location = New System.Drawing.Point(280, 502)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(0, 16)
-        Me.Label48.TabIndex = 118
+        Me.lblTotalOfLowerSectionGameFour.AutoSize = True
+        Me.lblTotalOfLowerSectionGameFour.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalOfLowerSectionGameFour.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalOfLowerSectionGameFour.Location = New System.Drawing.Point(280, 502)
+        Me.lblTotalOfLowerSectionGameFour.Name = "lblTotalOfLowerSectionGameFour"
+        Me.lblTotalOfLowerSectionGameFour.Size = New System.Drawing.Size(0, 16)
+        Me.lblTotalOfLowerSectionGameFour.TabIndex = 118
         '
         'lblTotalOfUpperSectionGameThree
         '
@@ -1401,15 +1386,15 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameThree.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameThree.TabIndex = 117
         '
-        'Label50
+        'lblTotalOfLowerSectionGameThree
         '
-        Me.Label50.AutoSize = True
-        Me.Label50.BackColor = System.Drawing.Color.Transparent
-        Me.Label50.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label50.Location = New System.Drawing.Point(244, 502)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(0, 16)
-        Me.Label50.TabIndex = 116
+        Me.lblTotalOfLowerSectionGameThree.AutoSize = True
+        Me.lblTotalOfLowerSectionGameThree.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalOfLowerSectionGameThree.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalOfLowerSectionGameThree.Location = New System.Drawing.Point(244, 502)
+        Me.lblTotalOfLowerSectionGameThree.Name = "lblTotalOfLowerSectionGameThree"
+        Me.lblTotalOfLowerSectionGameThree.Size = New System.Drawing.Size(0, 16)
+        Me.lblTotalOfLowerSectionGameThree.TabIndex = 116
         '
         'lblTotalOfUpperSectionGameTwo
         '
@@ -1421,15 +1406,15 @@ Partial Class frmYahtzee
         Me.lblTotalOfUpperSectionGameTwo.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfUpperSectionGameTwo.TabIndex = 115
         '
-        'Label52
+        'lblTotalOfLowerSectionGameTwo
         '
-        Me.Label52.AutoSize = True
-        Me.Label52.BackColor = System.Drawing.Color.Transparent
-        Me.Label52.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label52.Location = New System.Drawing.Point(210, 502)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(0, 16)
-        Me.Label52.TabIndex = 114
+        Me.lblTotalOfLowerSectionGameTwo.AutoSize = True
+        Me.lblTotalOfLowerSectionGameTwo.BackColor = System.Drawing.Color.Transparent
+        Me.lblTotalOfLowerSectionGameTwo.Font = New System.Drawing.Font("Forte", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalOfLowerSectionGameTwo.Location = New System.Drawing.Point(210, 502)
+        Me.lblTotalOfLowerSectionGameTwo.Name = "lblTotalOfLowerSectionGameTwo"
+        Me.lblTotalOfLowerSectionGameTwo.Size = New System.Drawing.Size(0, 16)
+        Me.lblTotalOfLowerSectionGameTwo.TabIndex = 114
         '
         'lblTotalOfUpperSectionGameOne
         '
@@ -1451,9 +1436,137 @@ Partial Class frmYahtzee
         Me.lblTotalOfLowerSectionGameOne.Size = New System.Drawing.Size(0, 16)
         Me.lblTotalOfLowerSectionGameOne.TabIndex = 112
         '
+        'lblYahtzeeBonusScoreGameOne
+        '
+        Me.lblYahtzeeBonusScoreGameOne.AutoSize = True
+        Me.lblYahtzeeBonusScoreGameOne.Font = New System.Drawing.Font("Forte", 11.25!)
+        Me.lblYahtzeeBonusScoreGameOne.Location = New System.Drawing.Point(168, 484)
+        Me.lblYahtzeeBonusScoreGameOne.Name = "lblYahtzeeBonusScoreGameOne"
+        Me.lblYahtzeeBonusScoreGameOne.Size = New System.Drawing.Size(0, 16)
+        Me.lblYahtzeeBonusScoreGameOne.TabIndex = 155
+        '
+        'lblYahtzeeBonusScoreGameTwo
+        '
+        Me.lblYahtzeeBonusScoreGameTwo.AutoSize = True
+        Me.lblYahtzeeBonusScoreGameTwo.Font = New System.Drawing.Font("Forte", 11.25!)
+        Me.lblYahtzeeBonusScoreGameTwo.Location = New System.Drawing.Point(203, 484)
+        Me.lblYahtzeeBonusScoreGameTwo.Name = "lblYahtzeeBonusScoreGameTwo"
+        Me.lblYahtzeeBonusScoreGameTwo.Size = New System.Drawing.Size(0, 16)
+        Me.lblYahtzeeBonusScoreGameTwo.TabIndex = 156
+        '
+        'lblYahtzeeBonusScoreGameThree
+        '
+        Me.lblYahtzeeBonusScoreGameThree.AutoSize = True
+        Me.lblYahtzeeBonusScoreGameThree.Font = New System.Drawing.Font("Forte", 11.25!)
+        Me.lblYahtzeeBonusScoreGameThree.Location = New System.Drawing.Point(237, 484)
+        Me.lblYahtzeeBonusScoreGameThree.Name = "lblYahtzeeBonusScoreGameThree"
+        Me.lblYahtzeeBonusScoreGameThree.Size = New System.Drawing.Size(0, 16)
+        Me.lblYahtzeeBonusScoreGameThree.TabIndex = 157
+        '
+        'lblYahtzeeBonusScoreGameFour
+        '
+        Me.lblYahtzeeBonusScoreGameFour.AutoSize = True
+        Me.lblYahtzeeBonusScoreGameFour.Font = New System.Drawing.Font("Forte", 11.25!)
+        Me.lblYahtzeeBonusScoreGameFour.Location = New System.Drawing.Point(273, 484)
+        Me.lblYahtzeeBonusScoreGameFour.Name = "lblYahtzeeBonusScoreGameFour"
+        Me.lblYahtzeeBonusScoreGameFour.Size = New System.Drawing.Size(0, 16)
+        Me.lblYahtzeeBonusScoreGameFour.TabIndex = 158
+        '
+        'lblYahtzeeBonusScoreGameFive
+        '
+        Me.lblYahtzeeBonusScoreGameFive.AutoSize = True
+        Me.lblYahtzeeBonusScoreGameFive.Font = New System.Drawing.Font("Forte", 11.25!)
+        Me.lblYahtzeeBonusScoreGameFive.Location = New System.Drawing.Point(307, 484)
+        Me.lblYahtzeeBonusScoreGameFive.Name = "lblYahtzeeBonusScoreGameFive"
+        Me.lblYahtzeeBonusScoreGameFive.Size = New System.Drawing.Size(0, 16)
+        Me.lblYahtzeeBonusScoreGameFive.TabIndex = 159
+        '
+        'lblYahtzeeBonusScoreGameSix
+        '
+        Me.lblYahtzeeBonusScoreGameSix.AutoSize = True
+        Me.lblYahtzeeBonusScoreGameSix.Font = New System.Drawing.Font("Forte", 11.25!)
+        Me.lblYahtzeeBonusScoreGameSix.Location = New System.Drawing.Point(342, 484)
+        Me.lblYahtzeeBonusScoreGameSix.Name = "lblYahtzeeBonusScoreGameSix"
+        Me.lblYahtzeeBonusScoreGameSix.Size = New System.Drawing.Size(0, 16)
+        Me.lblYahtzeeBonusScoreGameSix.TabIndex = 160
+        '
+        'btnStartNewGame
+        '
+        Me.btnStartNewGame.Location = New System.Drawing.Point(72, 66)
+        Me.btnStartNewGame.Name = "btnStartNewGame"
+        Me.btnStartNewGame.Size = New System.Drawing.Size(96, 23)
+        Me.btnStartNewGame.TabIndex = 161
+        Me.btnStartNewGame.Text = "Start New Game"
+        Me.btnStartNewGame.UseVisualStyleBackColor = True
+        Me.btnStartNewGame.Visible = False
+        '
+        'lblPlayerName
+        '
+        Me.lblPlayerName.AutoSize = True
+        Me.lblPlayerName.Font = New System.Drawing.Font("Lucida Handwriting", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPlayerName.Location = New System.Drawing.Point(240, 112)
+        Me.lblPlayerName.Name = "lblPlayerName"
+        Me.lblPlayerName.Size = New System.Drawing.Size(0, 24)
+        Me.lblPlayerName.TabIndex = 162
+        '
+        'picDiceFiveImage
+        '
+        Me.picDiceFiveImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picDiceFiveImage.Image = Global.Yahtzee.My.Resources.Resources.Dice_Five
+        Me.picDiceFiveImage.Location = New System.Drawing.Point(188, 24)
+        Me.picDiceFiveImage.Name = "picDiceFiveImage"
+        Me.picDiceFiveImage.Size = New System.Drawing.Size(40, 40)
+        Me.picDiceFiveImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDiceFiveImage.TabIndex = 167
+        Me.picDiceFiveImage.TabStop = False
+        '
+        'picDiceFourImage
+        '
+        Me.picDiceFourImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picDiceFourImage.Image = Global.Yahtzee.My.Resources.Resources.Dice_Four
+        Me.picDiceFourImage.Location = New System.Drawing.Point(144, 24)
+        Me.picDiceFourImage.Name = "picDiceFourImage"
+        Me.picDiceFourImage.Size = New System.Drawing.Size(40, 40)
+        Me.picDiceFourImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDiceFourImage.TabIndex = 166
+        Me.picDiceFourImage.TabStop = False
+        '
+        'picDiceThreeImage
+        '
+        Me.picDiceThreeImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picDiceThreeImage.Image = Global.Yahtzee.My.Resources.Resources.Dice_Three
+        Me.picDiceThreeImage.Location = New System.Drawing.Point(100, 24)
+        Me.picDiceThreeImage.Name = "picDiceThreeImage"
+        Me.picDiceThreeImage.Size = New System.Drawing.Size(40, 40)
+        Me.picDiceThreeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDiceThreeImage.TabIndex = 165
+        Me.picDiceThreeImage.TabStop = False
+        '
+        'picDiceTwoImage
+        '
+        Me.picDiceTwoImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picDiceTwoImage.Image = Global.Yahtzee.My.Resources.Resources.Dice_Two
+        Me.picDiceTwoImage.Location = New System.Drawing.Point(56, 24)
+        Me.picDiceTwoImage.Name = "picDiceTwoImage"
+        Me.picDiceTwoImage.Size = New System.Drawing.Size(40, 40)
+        Me.picDiceTwoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDiceTwoImage.TabIndex = 164
+        Me.picDiceTwoImage.TabStop = False
+        '
+        'picDiceOneImage
+        '
+        Me.picDiceOneImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picDiceOneImage.Image = Global.Yahtzee.My.Resources.Resources.Dice_One
+        Me.picDiceOneImage.Location = New System.Drawing.Point(12, 24)
+        Me.picDiceOneImage.Name = "picDiceOneImage"
+        Me.picDiceOneImage.Size = New System.Drawing.Size(40, 40)
+        Me.picDiceOneImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picDiceOneImage.TabIndex = 163
+        Me.picDiceOneImage.TabStop = False
+        '
         'picYahtzeeBonus
         '
-        Me.picYahtzeeBonus.Image = Global.Yahtzee.My.Resources.Resources.Yahtzee_Bonus
+        Me.picYahtzeeBonus.Image = CType(resources.GetObject("picYahtzeeBonus.Image"), System.Drawing.Image)
         Me.picYahtzeeBonus.Location = New System.Drawing.Point(10, 467)
         Me.picYahtzeeBonus.Name = "picYahtzeeBonus"
         Me.picYahtzeeBonus.Size = New System.Drawing.Size(83, 34)
@@ -1607,7 +1720,7 @@ Partial Class frmYahtzee
         '
         'picChance
         '
-        Me.picChance.Image = Global.Yahtzee.My.Resources.Resources.Chance
+        Me.picChance.Image = CType(resources.GetObject("picChance.Image"), System.Drawing.Image)
         Me.picChance.Location = New System.Drawing.Point(9, 449)
         Me.picChance.Name = "picChance"
         Me.picChance.Size = New System.Drawing.Size(85, 17)
@@ -1617,7 +1730,7 @@ Partial Class frmYahtzee
         '
         'picYahtzee
         '
-        Me.picYahtzee.Image = Global.Yahtzee.My.Resources.Resources.Yahtzee
+        Me.picYahtzee.Image = CType(resources.GetObject("picYahtzee.Image"), System.Drawing.Image)
         Me.picYahtzee.Location = New System.Drawing.Point(9, 431)
         Me.picYahtzee.Name = "picYahtzee"
         Me.picYahtzee.Size = New System.Drawing.Size(85, 18)
@@ -1627,7 +1740,7 @@ Partial Class frmYahtzee
         '
         'picLongStraight
         '
-        Me.picLongStraight.Image = Global.Yahtzee.My.Resources.Resources.Long_Straight
+        Me.picLongStraight.Image = CType(resources.GetObject("picLongStraight.Image"), System.Drawing.Image)
         Me.picLongStraight.Location = New System.Drawing.Point(9, 415)
         Me.picLongStraight.Name = "picLongStraight"
         Me.picLongStraight.Size = New System.Drawing.Size(85, 17)
@@ -1637,7 +1750,7 @@ Partial Class frmYahtzee
         '
         'picSmallStraight
         '
-        Me.picSmallStraight.Image = Global.Yahtzee.My.Resources.Resources.Small_Straight
+        Me.picSmallStraight.Image = CType(resources.GetObject("picSmallStraight.Image"), System.Drawing.Image)
         Me.picSmallStraight.Location = New System.Drawing.Point(9, 397)
         Me.picSmallStraight.Name = "picSmallStraight"
         Me.picSmallStraight.Size = New System.Drawing.Size(84, 17)
@@ -1647,7 +1760,7 @@ Partial Class frmYahtzee
         '
         'picFullHouse
         '
-        Me.picFullHouse.Image = Global.Yahtzee.My.Resources.Resources.Full_House
+        Me.picFullHouse.Image = CType(resources.GetObject("picFullHouse.Image"), System.Drawing.Image)
         Me.picFullHouse.Location = New System.Drawing.Point(9, 380)
         Me.picFullHouse.Name = "picFullHouse"
         Me.picFullHouse.Size = New System.Drawing.Size(84, 17)
@@ -1657,7 +1770,7 @@ Partial Class frmYahtzee
         '
         'picFourOfAKind
         '
-        Me.picFourOfAKind.Image = Global.Yahtzee.My.Resources.Resources.fourOfAKind
+        Me.picFourOfAKind.Image = CType(resources.GetObject("picFourOfAKind.Image"), System.Drawing.Image)
         Me.picFourOfAKind.Location = New System.Drawing.Point(9, 363)
         Me.picFourOfAKind.Name = "picFourOfAKind"
         Me.picFourOfAKind.Size = New System.Drawing.Size(84, 16)
@@ -1667,7 +1780,7 @@ Partial Class frmYahtzee
         '
         'picThreeOfAKind
         '
-        Me.picThreeOfAKind.Image = Global.Yahtzee.My.Resources.Resources.threeOfAKind
+        Me.picThreeOfAKind.Image = CType(resources.GetObject("picThreeOfAKind.Image"), System.Drawing.Image)
         Me.picThreeOfAKind.Location = New System.Drawing.Point(9, 346)
         Me.picThreeOfAKind.Name = "picThreeOfAKind"
         Me.picThreeOfAKind.Size = New System.Drawing.Size(84, 16)
@@ -1678,7 +1791,7 @@ Partial Class frmYahtzee
         'picSixes
         '
         Me.picSixes.BackColor = System.Drawing.Color.Transparent
-        Me.picSixes.Image = Global.Yahtzee.My.Resources.Resources.Sixes
+        Me.picSixes.Image = CType(resources.GetObject("picSixes.Image"), System.Drawing.Image)
         Me.picSixes.Location = New System.Drawing.Point(10, 259)
         Me.picSixes.Name = "picSixes"
         Me.picSixes.Size = New System.Drawing.Size(83, 17)
@@ -1689,7 +1802,7 @@ Partial Class frmYahtzee
         'picFives
         '
         Me.picFives.BackColor = System.Drawing.Color.Transparent
-        Me.picFives.Image = Global.Yahtzee.My.Resources.Resources.Fives
+        Me.picFives.Image = CType(resources.GetObject("picFives.Image"), System.Drawing.Image)
         Me.picFives.Location = New System.Drawing.Point(10, 242)
         Me.picFives.Name = "picFives"
         Me.picFives.Size = New System.Drawing.Size(83, 17)
@@ -1700,7 +1813,7 @@ Partial Class frmYahtzee
         'picFours
         '
         Me.picFours.BackColor = System.Drawing.Color.Transparent
-        Me.picFours.Image = Global.Yahtzee.My.Resources.Resources.Fours
+        Me.picFours.Image = CType(resources.GetObject("picFours.Image"), System.Drawing.Image)
         Me.picFours.Location = New System.Drawing.Point(10, 225)
         Me.picFours.Name = "picFours"
         Me.picFours.Size = New System.Drawing.Size(83, 17)
@@ -1711,7 +1824,7 @@ Partial Class frmYahtzee
         'picThrees
         '
         Me.picThrees.BackColor = System.Drawing.Color.Transparent
-        Me.picThrees.Image = Global.Yahtzee.My.Resources.Resources.Threes
+        Me.picThrees.Image = CType(resources.GetObject("picThrees.Image"), System.Drawing.Image)
         Me.picThrees.Location = New System.Drawing.Point(10, 208)
         Me.picThrees.Name = "picThrees"
         Me.picThrees.Size = New System.Drawing.Size(83, 17)
@@ -1721,7 +1834,7 @@ Partial Class frmYahtzee
         '
         'picTwos
         '
-        Me.picTwos.Image = Global.Yahtzee.My.Resources.Resources.Twos
+        Me.picTwos.Image = CType(resources.GetObject("picTwos.Image"), System.Drawing.Image)
         Me.picTwos.Location = New System.Drawing.Point(10, 191)
         Me.picTwos.Name = "picTwos"
         Me.picTwos.Size = New System.Drawing.Size(83, 17)
@@ -1731,7 +1844,7 @@ Partial Class frmYahtzee
         '
         'picAces
         '
-        Me.picAces.Image = Global.Yahtzee.My.Resources.Resources.Aces
+        Me.picAces.Image = CType(resources.GetObject("picAces.Image"), System.Drawing.Image)
         Me.picAces.Location = New System.Drawing.Point(8, 174)
         Me.picAces.Name = "picAces"
         Me.picAces.Size = New System.Drawing.Size(86, 18)
@@ -1750,75 +1863,17 @@ Partial Class frmYahtzee
         Me.picScoresheet.TabIndex = 7
         Me.picScoresheet.TabStop = False
         '
-        'lblYahtzeeBonusScoreGameOne
-        '
-        Me.lblYahtzeeBonusScoreGameOne.AutoSize = True
-        Me.lblYahtzeeBonusScoreGameOne.Font = New System.Drawing.Font("Forte", 11.25!)
-        Me.lblYahtzeeBonusScoreGameOne.Location = New System.Drawing.Point(168, 484)
-        Me.lblYahtzeeBonusScoreGameOne.Name = "lblYahtzeeBonusScoreGameOne"
-        Me.lblYahtzeeBonusScoreGameOne.Size = New System.Drawing.Size(0, 16)
-        Me.lblYahtzeeBonusScoreGameOne.TabIndex = 155
-        '
-        'lblYahtzeeBonusScoreGameTwo
-        '
-        Me.lblYahtzeeBonusScoreGameTwo.AutoSize = True
-        Me.lblYahtzeeBonusScoreGameTwo.Font = New System.Drawing.Font("Forte", 11.25!)
-        Me.lblYahtzeeBonusScoreGameTwo.Location = New System.Drawing.Point(203, 484)
-        Me.lblYahtzeeBonusScoreGameTwo.Name = "lblYahtzeeBonusScoreGameTwo"
-        Me.lblYahtzeeBonusScoreGameTwo.Size = New System.Drawing.Size(0, 16)
-        Me.lblYahtzeeBonusScoreGameTwo.TabIndex = 156
-        '
-        'lblYahtzeeBonusScoreGameThree
-        '
-        Me.lblYahtzeeBonusScoreGameThree.AutoSize = True
-        Me.lblYahtzeeBonusScoreGameThree.Font = New System.Drawing.Font("Forte", 11.25!)
-        Me.lblYahtzeeBonusScoreGameThree.Location = New System.Drawing.Point(237, 484)
-        Me.lblYahtzeeBonusScoreGameThree.Name = "lblYahtzeeBonusScoreGameThree"
-        Me.lblYahtzeeBonusScoreGameThree.Size = New System.Drawing.Size(0, 16)
-        Me.lblYahtzeeBonusScoreGameThree.TabIndex = 157
-        '
-        'lblYahtzeeBonusScoreGameFour
-        '
-        Me.lblYahtzeeBonusScoreGameFour.AutoSize = True
-        Me.lblYahtzeeBonusScoreGameFour.Font = New System.Drawing.Font("Forte", 11.25!)
-        Me.lblYahtzeeBonusScoreGameFour.Location = New System.Drawing.Point(273, 484)
-        Me.lblYahtzeeBonusScoreGameFour.Name = "lblYahtzeeBonusScoreGameFour"
-        Me.lblYahtzeeBonusScoreGameFour.Size = New System.Drawing.Size(0, 16)
-        Me.lblYahtzeeBonusScoreGameFour.TabIndex = 158
-        '
-        'lblYahtzeeBonusScoreGameFive
-        '
-        Me.lblYahtzeeBonusScoreGameFive.AutoSize = True
-        Me.lblYahtzeeBonusScoreGameFive.Font = New System.Drawing.Font("Forte", 11.25!)
-        Me.lblYahtzeeBonusScoreGameFive.Location = New System.Drawing.Point(307, 484)
-        Me.lblYahtzeeBonusScoreGameFive.Name = "lblYahtzeeBonusScoreGameFive"
-        Me.lblYahtzeeBonusScoreGameFive.Size = New System.Drawing.Size(0, 16)
-        Me.lblYahtzeeBonusScoreGameFive.TabIndex = 159
-        '
-        'lblYahtzeeBonusScoreGameSix
-        '
-        Me.lblYahtzeeBonusScoreGameSix.AutoSize = True
-        Me.lblYahtzeeBonusScoreGameSix.Font = New System.Drawing.Font("Forte", 11.25!)
-        Me.lblYahtzeeBonusScoreGameSix.Location = New System.Drawing.Point(342, 484)
-        Me.lblYahtzeeBonusScoreGameSix.Name = "lblYahtzeeBonusScoreGameSix"
-        Me.lblYahtzeeBonusScoreGameSix.Size = New System.Drawing.Size(0, 16)
-        Me.lblYahtzeeBonusScoreGameSix.TabIndex = 160
-        '
-        'btnStartNewGame
-        '
-        Me.btnStartNewGame.Location = New System.Drawing.Point(72, 66)
-        Me.btnStartNewGame.Name = "btnStartNewGame"
-        Me.btnStartNewGame.Size = New System.Drawing.Size(96, 23)
-        Me.btnStartNewGame.TabIndex = 161
-        Me.btnStartNewGame.Text = "Start New Game"
-        Me.btnStartNewGame.UseVisualStyleBackColor = True
-        Me.btnStartNewGame.Visible = False
-        '
         'frmYahtzee
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(384, 561)
+        Me.Controls.Add(Me.picDiceFiveImage)
+        Me.Controls.Add(Me.picDiceFourImage)
+        Me.Controls.Add(Me.picDiceThreeImage)
+        Me.Controls.Add(Me.picDiceTwoImage)
+        Me.Controls.Add(Me.picDiceOneImage)
+        Me.Controls.Add(Me.lblPlayerName)
         Me.Controls.Add(Me.btnStartNewGame)
         Me.Controls.Add(Me.lblYahtzeeBonusScoreGameSix)
         Me.Controls.Add(Me.lblYahtzeeBonusScoreGameFive)
@@ -1858,15 +1913,15 @@ Partial Class frmYahtzee
         Me.Controls.Add(Me.lblGrandTotalScoreGameTwo)
         Me.Controls.Add(Me.lblGrandTotalScoreGameOne)
         Me.Controls.Add(Me.lblTotalOfUpperSectionGameSix)
-        Me.Controls.Add(Me.Label44)
+        Me.Controls.Add(Me.lblTotalOfLowerSectionGameSix)
         Me.Controls.Add(Me.lblTotalOfUpperSectionGameFive)
-        Me.Controls.Add(Me.Label46)
+        Me.Controls.Add(Me.lblTotalOfLowerSectionGameFive)
         Me.Controls.Add(Me.lblTotalOfUpperSectionGameFour)
-        Me.Controls.Add(Me.Label48)
+        Me.Controls.Add(Me.lblTotalOfLowerSectionGameFour)
         Me.Controls.Add(Me.lblTotalOfUpperSectionGameThree)
-        Me.Controls.Add(Me.Label50)
+        Me.Controls.Add(Me.lblTotalOfLowerSectionGameThree)
         Me.Controls.Add(Me.lblTotalOfUpperSectionGameTwo)
-        Me.Controls.Add(Me.Label52)
+        Me.Controls.Add(Me.lblTotalOfLowerSectionGameTwo)
         Me.Controls.Add(Me.lblTotalOfUpperSectionGameOne)
         Me.Controls.Add(Me.lblTotalOfLowerSectionGameOne)
         Me.Controls.Add(Me.picThreeOfAKind)
@@ -1975,21 +2030,21 @@ Partial Class frmYahtzee
         Me.Controls.Add(Me.picAces)
         Me.Controls.Add(Me.picScoresheet)
         Me.Controls.Add(Me.btnRollDice)
-        Me.Controls.Add(Me.lblDiceFive)
-        Me.Controls.Add(Me.lblDiceFour)
-        Me.Controls.Add(Me.lblDiceThree)
-        Me.Controls.Add(Me.lblDiceTwo)
-        Me.Controls.Add(Me.lblDiceOne)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.Controls.Add(Me.mnuTopBar)
+        Me.MainMenuStrip = Me.mnuTopBar
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(400, 600)
         Me.MinimumSize = New System.Drawing.Size(400, 600)
         Me.Name = "frmYahtzee"
-        Me.Text = "Yahtzee"
+        Me.Text = "Yahtzeee"
         Me.TransparencyKey = System.Drawing.Color.Red
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.mnuTopBar.ResumeLayout(False)
+        Me.mnuTopBar.PerformLayout()
+        CType(Me.picDiceFiveImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDiceFourImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDiceThreeImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDiceTwoImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picDiceOneImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picYahtzeeBonus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picYahtzeeBonusThreeGameSix, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picYahtzeeBonusTwoGameSix, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2027,14 +2082,8 @@ Partial Class frmYahtzee
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents lblDiceOne As Label
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents lblDiceTwo As Label
-    Friend WithEvents lblDiceThree As Label
-    Friend WithEvents lblDiceFour As Label
-    Friend WithEvents lblDiceFive As Label
+    Friend WithEvents mnuTopBar As MenuStrip
+    Friend WithEvents mnuTopBarFile As ToolStripMenuItem
     Friend WithEvents btnRollDice As Button
     Friend WithEvents picAces As PictureBox
     Friend WithEvents picTwos As PictureBox
@@ -2148,15 +2197,15 @@ Partial Class frmYahtzee
     Friend WithEvents lblGrandTotalScoreGameTwo As Label
     Friend WithEvents lblGrandTotalScoreGameOne As Label
     Friend WithEvents lblTotalOfUpperSectionGameSix As Label
-    Friend WithEvents Label44 As Label
+    Friend WithEvents lblTotalOfLowerSectionGameSix As Label
     Friend WithEvents lblTotalOfUpperSectionGameFive As Label
-    Friend WithEvents Label46 As Label
+    Friend WithEvents lblTotalOfLowerSectionGameFive As Label
     Friend WithEvents lblTotalOfUpperSectionGameFour As Label
-    Friend WithEvents Label48 As Label
+    Friend WithEvents lblTotalOfLowerSectionGameFour As Label
     Friend WithEvents lblTotalOfUpperSectionGameThree As Label
-    Friend WithEvents Label50 As Label
+    Friend WithEvents lblTotalOfLowerSectionGameThree As Label
     Friend WithEvents lblTotalOfUpperSectionGameTwo As Label
-    Friend WithEvents Label52 As Label
+    Friend WithEvents lblTotalOfLowerSectionGameTwo As Label
     Friend WithEvents lblTotalOfUpperSectionGameOne As Label
     Friend WithEvents lblTotalOfLowerSectionGameOne As Label
     Friend WithEvents picFourOfAKind As PictureBox
@@ -2191,4 +2240,15 @@ Partial Class frmYahtzee
     Friend WithEvents lblYahtzeeBonusScoreGameFive As Label
     Friend WithEvents lblYahtzeeBonusScoreGameSix As Label
     Friend WithEvents btnStartNewGame As Button
+    Friend WithEvents mnuTopBarFileExit As ToolStripMenuItem
+    Friend WithEvents mnuTopBarHelp As ToolStripMenuItem
+    Friend WithEvents mnuTopBarHelpViewHelp As ToolStripMenuItem
+    Friend WithEvents mnuTopBarHelpRules As ToolStripMenuItem
+    Friend WithEvents lblPlayerName As Label
+    Friend WithEvents picDiceOneImage As PictureBox
+    Friend WithEvents picDiceTwoImage As PictureBox
+    Friend WithEvents picDiceThreeImage As PictureBox
+    Friend WithEvents picDiceFourImage As PictureBox
+    Friend WithEvents picDiceFiveImage As PictureBox
+    Friend WithEvents tmrDiceRoller As Timer
 End Class

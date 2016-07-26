@@ -166,4 +166,25 @@
   <data name="Extra Yahtzee Tick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Extra Yahtzee Tick.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Game_Rules" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Game Rules.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dice_Five" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice Five.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice_Four" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice Four.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice_One" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice One.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice_Six" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice Six.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice_Three" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice Three.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dice_Two" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dice Two.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

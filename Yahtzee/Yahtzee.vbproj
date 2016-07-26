@@ -76,6 +76,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Name Entry.Designer.vb">
+      <DependentUpon>Name Entry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Name Entry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Yahtzee.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Name Entry.resx">
+      <DependentUpon>Name Entry.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Yahtzee.resx">
       <DependentUpon>Yahtzee.vb</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +132,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Game Rules.pdf" />
     <None Include="Resources\scoresheetLarge.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +181,12 @@
     <None Include="Resources\Extra Yahtzee Tick.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Dice Five.jpg" />
+    <None Include="Resources\Dice Four.jpg" />
+    <None Include="Resources\Dice One.jpg" />
+    <None Include="Resources\Dice Six.jpg" />
+    <None Include="Resources\Dice Three.jpg" />
+    <None Include="Resources\Dice Two.jpg" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

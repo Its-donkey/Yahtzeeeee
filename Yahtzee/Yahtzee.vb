@@ -1,4 +1,6 @@
-﻿Public Class frmYahtzee
+﻿Imports System.IO
+
+Public Class frmYahtzee
     Private diceValue(4) As Integer
     Private diceRoll As Boolean() = {True, True, True, True, True}
     Private roundNumber As Single = 13
@@ -8,37 +10,48 @@
     Private roundScored As Boolean
     Private mouseListener As Boolean = False
     Private bonusYahtzeeSelection As Integer
+    Private Sub frmYahtzee_Load(sender As Object, e As EventArgs) Handles Me.Load
+        frmNameEntry.ShowDialog()
+    End Sub
+    Private Sub mnuTopBarHelpViewHelp_Click(sender As Object, e As EventArgs) Handles mnuTopBarHelpViewHelp.Click
 
-    Private Sub btnRollDice_Click(sender As Object, e As EventArgs) Handles btnRollDice.Click, btnStartNewGame.Click
+    End Sub
+    Private Sub mnuTopBarHelpRules_Click(sender As Object, e As EventArgs) Handles mnuTopBarHelpRules.Click
+        Dim pdf As Byte() = My.Resources.Game_Rules
+        Using tmp As New FileStream("Game_Rules.pdf", FileMode.Create)
+            tmp.Write(pdf, 0, pdf.Length)
+        End Using
+        Process.Start("Game_Rules.pdf")
+    End Sub
+    Private Sub btnRollDice_Click(sender As Object, e As EventArgs) Handles btnRollDice.Click
         If subRoundNumber > 0 Then
             rollAllDice()
         End If
     End Sub
-    Private Sub diceClick(sender As Object, e As EventArgs) Handles lblDiceOne.Click, lblDiceTwo.Click, lblDiceThree.Click,
-        lblDiceFour.Click, lblDiceFive.Click
+    Private Sub diceClick(sender As Object, e As EventArgs) Handles picDiceOneImage.Click, picDiceTwoImage.Click, picDiceThreeImage.Click, picDiceFourImage.Click, picDiceFiveImage.Click
 
-        Select Case DirectCast(sender, Label).Name
+        Select Case DirectCast(sender, PictureBox).Name
 
-            Case "lblDiceOne"
+            Case "picDiceOneImage"
                 changeButtonState(sender, diceRoll(0))
 
-            Case "lblDiceTwo"
+            Case "picDiceTwoImage"
                 changeButtonState(sender, diceRoll(1))
 
-            Case "lblDiceThree"
+            Case "picDiceThreeImage"
                 changeButtonState(sender, diceRoll(2))
 
-            Case "lblDiceFour"
+            Case "picDiceFourImage"
                 changeButtonState(sender, diceRoll(3))
 
-            Case "lblDiceFive"
+            Case "picDiceFiveImage"
                 changeButtonState(sender, diceRoll(4))
 
         End Select
     End Sub
     Private Sub changeButtonState(ByVal buttonName As Object, ByRef diceRollNumber As Boolean)
         If subRoundNumber <> 3 Then
-            Dim dice As Label = DirectCast(buttonName, Label)
+            Dim dice As PictureBox = DirectCast(buttonName, PictureBox)
             diceRollNumber = Not (diceRollNumber)
             If diceRollNumber Then
                 dice.BorderStyle = BorderStyle.FixedSingle
@@ -271,17 +284,26 @@
 
     Sub rollAllDice()
         Dim random = New Random()
+
+        picDiceOneImage.Image = Nothing
+        picDiceTwoImage.Image = Nothing
+        picDiceThreeImage.Image = Nothing
+        picDiceFourImage.Image = Nothing
+        picDiceFiveImage.Image = Nothing
+
         For i As Integer = 0 To diceValue.GetUpperBound(0)
             If diceRoll(i) Then
                 diceValue(i) = random.Next(1, 7)
+                Me.Controls("picDice" & NumberToText((i + 1)) & "Image").BackgroundImage = setDiceFaceImage(diceValue(i))
             End If
         Next
 
-        lblDiceOne.Text = CStr(diceValue(0))
-        lblDiceTwo.Text = CStr(diceValue(1))
-        lblDiceThree.Text = CStr(diceValue(2))
-        lblDiceFour.Text = CStr(diceValue(3))
-        lblDiceFive.Text = CStr(diceValue(4))
+        'picDiceOneImage.Image = setDiceFaceImage(diceValue(0))
+        'picDiceTwoImage.Image = setDiceFaceImage(diceValue(1))
+        'picDiceThreeImage.Image = setDiceFaceImage(diceValue(2))
+        'picDiceFourImage.Image = setDiceFaceImage(diceValue(3))
+        'picDiceFiveImage.Image = setDiceFaceImage(diceValue(4))
+
 
         subRoundNumber -= 1
 
@@ -332,7 +354,9 @@
     End Sub
     Private Sub scoreLowerSection(scoreValue As Integer)
         scoreCard(1, 18, (gameNumber - 1)) += scoreValue
+        Me.Controls("lblTotalOfLowerSectionGame" & NumberToText(gameNumber)).Text = CStr(scoreCard(1, 18, (gameNumber - 1)))
         scoreCard(1, 19, (gameNumber - 1)) += scoreValue
+        Me.Controls("lblGrandTotalScoreGame" & NumberToText(gameNumber)).Text = CStr(scoreCard(1, 19, (gameNumber - 1)))
     End Sub
     Private Sub bonusYahtzeeScoreUpper(diceSelect As Integer)
         Dim scoreValue As Integer = 0
@@ -347,22 +371,23 @@
 
         scoreCard(0, (diceSelect - 1), (gameNumber - 1)) = 1
     End Sub
-    Private Sub btnNextRound_Click(sender As Object, e As EventArgs) Handles btnNextRound.Click
+    Private Sub btnNextRound_Click(sender As Object, e As EventArgs) Handles btnNextRound.Click, btnStartNewGame.Click
         For i As Integer = 0 To diceRoll.GetUpperBound(0)
             diceRoll(i) = True
         Next
 
-        lblDiceOne.BorderStyle = BorderStyle.FixedSingle
-        lblDiceTwo.BorderStyle = BorderStyle.FixedSingle
-        lblDiceThree.BorderStyle = BorderStyle.FixedSingle
-        lblDiceFour.BorderStyle = BorderStyle.FixedSingle
-        lblDiceFive.BorderStyle = BorderStyle.FixedSingle
+        picDiceOneImage.BorderStyle = BorderStyle.FixedSingle
+        picDiceTwoImage.BorderStyle = BorderStyle.FixedSingle
+        picDiceThreeImage.BorderStyle = BorderStyle.FixedSingle
+        picDiceFourImage.BorderStyle = BorderStyle.FixedSingle
+        picDiceFiveImage.BorderStyle = BorderStyle.FixedSingle
 
         subRoundNumber = 3
         rollAllDice()
 
         btnRollDice.Visible = True
         btnNextRound.Visible = False
+        btnStartNewGame.Visible = False
         roundScored = False
     End Sub
     Private Sub roundAndGameNumber()
@@ -409,5 +434,27 @@
             Return ""
         End If
     End Function
+    Private Function setDiceFaceImage(diceRolledNumber As Integer) As Image
+        Select Case diceRolledNumber
+            Case 1
+                Return My.Resources.Dice_One
+            Case 2
+                Return My.Resources.Dice_Two
+            Case 3
+                Return My.Resources.Dice_Three
+            Case 4
+                Return My.Resources.Dice_Four
+            Case 5
+                Return My.Resources.Dice_Five
+            Case 6
+                Return My.Resources.Dice_Six
+            Case Else
+                Return Nothing
+        End Select
 
+    End Function
+
+    Private Sub mnuTopBarFileExit_Click(sender As Object, e As EventArgs) Handles mnuTopBarFileExit.Click
+        Close()
+    End Sub
 End Class
